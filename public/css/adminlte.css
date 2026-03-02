@@ -12890,19 +12890,20 @@ textarea.form-control-lg {
 }
 
 .app-sidebar {
-  --lte-sidebar-hover-bg: rgba(0, 0, 0, 0.1);
-  --lte-sidebar-color: #343a40;
+   /* background-color: rgb(31, 47, 90) !important; */
+  --lte-sidebar-hover-bg: rgba(66, 255, 3, 0.1);
+  --lte-sidebar-color: #9dff00;
   --lte-sidebar-hover-color: #212529;
-  --lte-sidebar-active-color: #000;
-  --lte-sidebar-menu-active-bg: rgba(0, 0, 0, 0.1);
+  --lte-sidebar-active-color: #4b0000;
+  --lte-sidebar-menu-active-bg: rgba(241, 0, 0, 0.1);
   --lte-sidebar-menu-active-color: #000;
   --lte-sidebar-submenu-bg: transparent;
-  --lte-sidebar-submenu-color: #777;
+  --lte-sidebar-submenu-color: #8f0808;
   --lte-sidebar-submenu-hover-color: #000;
-  --lte-sidebar-submenu-hover-bg: rgba(0, 0, 0, 0.1);
+  --lte-sidebar-submenu-hover-bg: rgba(187, 255, 0, 0.1);
   --lte-sidebar-submenu-active-color: #212529;
   --lte-sidebar-submenu-active-bg: rgba(0, 0, 0, 0.1);
-  --lte-sidebar-header-color: rgb(49.4, 55.1, 60.8);
+  --lte-sidebar-header-color: rgb(249, 249, 0);
   z-index: 1038;
   grid-area: lte-app-sidebar;
   min-width: var(--lte-sidebar-width);
