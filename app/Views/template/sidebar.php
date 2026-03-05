@@ -62,12 +62,34 @@
 
             </ul>
           </li>
+          <li class="nav-item menu-open">
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('/') ?>" class="nav-link active">
+                  <i class="nav-icon bi bi-buildings"></i>
+                  <p>Client</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="nav-item menu-open">
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('/') ?>" class="nav-link active">
+                  <i class="nav-icon bi bi-youtube"></i>
+                  <p>Youtube</p>
+                </a>
+              </li>
+            </ul>
+          </li>
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon bi bi-database"></i>
+              <i class="nav-icon bi bi-briefcase"></i>
               <p>
-                Master
+                About
                 <i class="nav-arrow bi bi-chevron-right"></i>
               </p>
             </a>
@@ -75,7 +97,7 @@
               <li class="nav-item">
                 <a href="./widgets/small-box.html" class="nav-link">
                   <i class="nav-icon bi bi-circle"></i>
-                  <p>Small Box</p>
+                  <p>Service</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -96,7 +118,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon bi bi-clipboard-fill"></i>
               <p>
-                Layout Options
+                
                 <span class="nav-badge badge text-bg-secondary me-3">6</span>
                 <i class="nav-arrow bi bi-chevron-right"></i>
               </p>

@@ -12890,7 +12890,8 @@ textarea.form-control-lg {
 }
 
 .app-sidebar {
-   /* background-color: rgb(31, 47, 90) !important; */
+   /* background-color: rgb(118 55 55) !important; */
+   background-color: rgb(31, 47, 90) !important;
   --lte-sidebar-hover-bg: rgba(66, 255, 3, 0.1);
   --lte-sidebar-color: #9dff00;
   --lte-sidebar-hover-color: #212529;

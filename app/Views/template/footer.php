@@ -4,7 +4,7 @@
   <!--end::To the end-->
   <!--begin::Copyright-->
   <strong>
-    Media Epic Holding &copy; 2026&nbsp;
+    Epic Creative &copy; 2026&nbsp;
 
   </strong>
   <!--end::Copyright-->
