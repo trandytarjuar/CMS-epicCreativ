@@ -21,7 +21,7 @@
                      <div class="input-group mb-1">
                          <div class="form-floating">
                              <input id="loginEmail" type="email" class="form-control" value="" placeholder="" />
-                             <label for="loginEmail">Email</label>
+                             <label for="loginEmail">Email/Username</label>
                          </div>
                          <div class="input-group-text"><span class="bi bi-person"></span></div>
                      </div>
@@ -36,7 +36,7 @@
                      <div class="row">
                          <div class="col-8 d-inline-flex align-items-center">
                              <div class="form-check">
-                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                 <input class="form-check-input" type="checkbox" value="" id="showPassword" />
                                  <label class="form-check-label" for="flexCheckDefault"> Show Password </label>
                              </div>
                          </div>
@@ -82,6 +82,7 @@
 
      <!--end::OverlayScrollbars Configure-->
      <!--end::Script-->
+     <?= $this->include('js/login') ?>
  </body>
  <!--end::Body-->
 
