@@ -30,8 +30,15 @@
 <script src="<?= base_url('js/adminlte.js') ?>"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
 <script>
+  toastr.options = {
+    "closeButton": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "timeOut": "3000"
+  };
   const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
   const Default = {
     scrollbarTheme: 'os-theme-light',

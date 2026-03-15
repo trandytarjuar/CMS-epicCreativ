@@ -22,6 +22,7 @@ class UserController extends BaseController
         $name = $this->request->getPost('name');
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
+        $email = $this->request->getPost('email');
         $role = $this->request->getPost('role');
 
         if (!$name || !$username || !$password) {
@@ -31,9 +32,25 @@ class UserController extends BaseController
             ]);
         }
 
+        if ($userModel->where('username', $username)->first()) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Username sudah digunakan'
+            ]);
+        }
+
+        // cek email
+        if ($userModel->where('email', $email)->first()) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Email sudah digunakan'
+            ]);
+        }
+
         $userModel->insert([
             'name' => $name,
             'username' => $username,
+            'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
             'role' => $role,
             'created_at' => date('Y-m-d H:i:s'),
@@ -42,6 +59,36 @@ class UserController extends BaseController
 
         return $this->response->setJSON([
             'status' => 'success'
+        ]);
+    }
+
+    public function checkUsername()
+    {
+        $userModel = new \App\Models\UserModel();
+
+        $data = $this->request->getJSON(true);
+
+        $exists = $userModel
+            ->where('username', $data['username'])
+            ->first();
+
+        return $this->response->setJSON([
+            'exists' => $exists ? true : false
+        ]);
+    }
+
+    public function checkEmail()
+    {
+        $userModel = new \App\Models\UserModel();
+
+        $data = $this->request->getJSON(true);
+
+        $exists = $userModel
+            ->where('email', $data['email'])
+            ->first();
+
+        return $this->response->setJSON([
+            'exists' => $exists ? true : false
         ]);
     }
 }

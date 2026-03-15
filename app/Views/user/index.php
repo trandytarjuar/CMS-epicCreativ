@@ -114,13 +114,24 @@
 
           <div class="mb-3">
             <label class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" required>
+            <input type="text" name="username" id="usernameInput" class="form-control" required>
+            <div id="usernameError" class="text-danger small d-none">
+              Username sudah digunakan
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" id="emailInput" class="form-control" required>
+            <div id="emailError" class="text-danger small d-none">
+              Email sudah digunakan
+            </div>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Role</label>
-            <select name="role" class="form-control">
-              <option value="" selected>Select Role</option>
+            <select name="role" class="form-select" placeholder="Select Role" required>
+              <option value="">Select Role</option>
               <option value="admin">Admin</option>
               <option value="superadmin">Superadmin</option>
             </select>
@@ -128,10 +139,12 @@
 
           <div class="mb-3">
             <label class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" required>
-            <span class="input-group-text" id="togglePassword" style="cursor:pointer">
-              <i class="bi bi-eye"></i>
-            </span>
+            <div class="input-group">
+              <input type="password" id="passwordField" name="password" class="form-control" required>
+              <span class="input-group-text" id="togglePassword" style="cursor:pointer">
+                <i class="bi bi-eye"></i>
+              </span>
+            </div>
           </div>
 
         </form>
