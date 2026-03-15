@@ -91,4 +91,58 @@ class UserController extends BaseController
             'exists' => $exists ? true : false
         ]);
     }
+    public function delete($id)
+    {
+        $userModel = new \App\Models\UserModel();
+
+        $user = $userModel->find($id);
+
+        if (!$user) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'User tidak ditemukan'
+            ]);
+        }
+
+        $userModel->delete($id);
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'User berhasil dihapus'
+        ]);
+    }
+    public function show($id)
+    {
+        $userModel = new \App\Models\UserModel();
+
+        $user = $userModel->find($id);
+
+        return $this->response->setJSON($user);
+    }
+
+    public function update($id)
+    {
+        $userModel = new \App\Models\UserModel();
+
+        $data = $this->request->getJSON(true);
+
+        $userModel->update($id, [
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'role' => $data['role'],
+            'updated_at' => date('Y-m-d H:i:s'),
+            'updated_by' => session()->get('username')
+        ]);
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'User berhasil diupdate'
+        ]);
+    }
+
+    public function profile()
+    {
+        return view('user/profile');
+    }
 }

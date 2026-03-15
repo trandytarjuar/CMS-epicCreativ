@@ -8,7 +8,7 @@ class AuthController extends BaseController
 {
     public function login()
     {
-        return view('login');
+        return view('auth/login');
     }
 
     public function loginProcess()
@@ -80,5 +80,10 @@ class AuthController extends BaseController
         session()->destroy();
 
         return redirect()->to('/login');
+    }
+
+    public function forgotPassword()
+    {
+        return view('auth/forgotPassword');
     }
 }

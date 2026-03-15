@@ -8,7 +8,7 @@
     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
       <img
         src="<?= session('image')
-                  ? base_url('uploads/users/' . session('image'))
+                  ? base_url('image/user/' . session('image'))
                   : base_url('image/user/default.png') ?>"
         class="user-image rounded-circle shadow"
         alt="User Image" />
@@ -20,7 +20,7 @@
       <li class="user-header text-bg-primary">
         <img
           src="<?= session('image')
-                  ? base_url('uploads/users/' . session('image'))
+                  ? base_url('image/user/' . session('image'))
                   : base_url('image/user/default.png') ?>"
           class="rounded-circle shadow"
           alt="User Image" />
@@ -34,7 +34,7 @@
       <!--end::Menu Body-->
       <!--begin::Menu Footer-->
       <li class="user-footer">
-        <a href="#" class="btn btn-default btn-flat">Profile</a>
+        <a href="<?= base_url('profile') ?>" class="btn btn-default btn-flat">Profile</a>
         <a href="<?= base_url('logout') ?>" class="btn btn-default btn-flat float-end">Sign out</a>
       </li>
       <!--end::Menu Footer-->

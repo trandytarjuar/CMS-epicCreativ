@@ -55,6 +55,16 @@ class CreateUsersTable extends Migration
                 'type' => 'DATETIME',
                 'null' => true
             ],
+            'reset_token'=>[
+                'type'=>'VARCHAR',
+                'constraint'=>255,
+                'null'=>true
+            ],
+
+            'reset_expired'=>[
+                'type'=>'DATETIME',
+                'null'=>true
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true

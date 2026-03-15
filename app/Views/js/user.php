@@ -128,4 +128,150 @@
             });
 
     }
+    document.getElementById('modalAddUser')
+        .addEventListener('hidden.bs.modal', function() {
+
+            document.getElementById("formAddUser").reset();
+
+        });
+
+    document.getElementById('modalAddUser')
+        .addEventListener('hidden.bs.modal', function() {
+
+            document.getElementById("formAddUser").reset();
+
+        });
+    document.getElementById('modalAddUser')
+        .addEventListener('hidden.bs.modal', function() {
+
+            document.getElementById("formAddUser").reset();
+
+            document.getElementById("alertUser").classList.add("d-none");
+            document.getElementById("usernameError").classList.add("d-none");
+            document.getElementById("emailError").classList.add("d-none");
+
+        });
+
+    document.querySelectorAll(".btnDeleteUser").forEach(button => {
+
+        button.addEventListener("click", function() {
+
+            let id = this.dataset.id;
+
+            Swal.fire({
+                title: "Delete User?",
+                text: "User ini akan dihapus permanen!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Delete",
+                cancelButtonText: "Cancel"
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+
+                    fetch("<?= base_url('user') ?>/" + id, {
+                            method: "DELETE"
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+
+                            if (data.status === "success") {
+
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Deleted!",
+                                    text: data.message,
+                                    timer: 1500,
+                                    showConfirmButton: false
+                                });
+
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 1500);
+
+                            } else {
+
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Error",
+                                    text: data.message
+                                });
+
+                            }
+
+                        });
+
+                }
+
+            });
+
+        });
+
+    });
+
+    document.querySelectorAll(".btnEditUser").forEach(btn => {
+
+        btn.addEventListener("click", function() {
+
+            let id = this.dataset.id;
+
+            fetch("<?= base_url('user') ?>/" + id)
+                .then(res => res.json())
+                .then(data => {
+
+                    document.getElementById("editUserId").value = data.id;
+                    document.getElementById("editName").value = data.name;
+                    document.getElementById("editUsername").value = data.username;
+                    document.getElementById("editEmail").value = data.email;
+                    document.getElementById("editRole").value = data.role;
+
+                    new bootstrap.Modal(document.getElementById("modalEditUser")).show();
+
+                });
+
+        });
+
+    });
+
+    document.getElementById("btnUpdateUser")
+        .addEventListener("click", function() {
+
+            let id = document.getElementById("editUserId").value;
+
+            fetch("<?= base_url('user') ?>/" + id, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: document.getElementById("editName").value,
+                        username: document.getElementById("editUsername").value,
+                        email: document.getElementById("editEmail").value,
+                        role: document.getElementById("editRole").value
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.status === "success") {
+
+                        Swal.fire({
+                            icon: "success",
+                            title: "Updated",
+                            text: data.message,
+                            timer: 1500,
+                            showConfirmButton: false
+                        });
+
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+
+                    }
+
+                });
+
+        });
 </script>
