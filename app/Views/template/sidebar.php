@@ -36,6 +36,7 @@
         <span class="brand-text fw-light">Epic Creative</span>
         <!--end::Brand Text-->
       </a>
+      
       <!--end::Brand Link-->
     </div>
     <!--end::Sidebar Brand-->
@@ -57,6 +58,18 @@
                 <a href="<?= base_url('/') ?>" class="nav-link active">
                   <i class="nav-icon bi bi-house"></i>
                   <p>Dashboard</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="nav-item menu-open">
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('/user') ?>" class="nav-link active">
+                  <i class="nav-icon bi bi-people"></i>
+                  <p>User</p>
                 </a>
               </li>
 
@@ -118,7 +131,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon bi bi-clipboard-fill"></i>
               <p>
-                
+
                 <span class="nav-badge badge text-bg-secondary me-3">6</span>
                 <i class="nav-arrow bi bi-chevron-right"></i>
               </p>

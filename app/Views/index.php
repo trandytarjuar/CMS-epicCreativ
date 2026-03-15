@@ -28,7 +28,7 @@
           <!--begin::Container-->
           <div class="container-fluid">
             
-            <p>Welcome to the Media Epic Holding CMS Dashboard.</p>
+            <p>Welcome <?= session()->get('name') ?> to the Media Epic Holding CMS Dashboard.</p>
             <!-- /.row (main row) -->
           </div>
           <!--end::Container-->

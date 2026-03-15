@@ -19,20 +19,55 @@ class CreateUsersTable extends Migration
             ],
             'username' => [
                 'type' => 'VARCHAR',
-                'constraint' => 150,
+                'constraint' => 100,
+                'unique' => true
+            ],
+            'email' => [
+                'type' => 'VARCHAR',
+                'constraint' => 191,
                 'unique' => true
             ],
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255
             ],
+            'image' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
             'role' => [
                 'type' => 'ENUM',
-                'constraint' => ['admin','editor'],
-                'default' => 'admin'
+                'constraint' => ['superadmin', 'admin'],
+                'null' => true
+            ],
+            'last_login' => [
+                'type' => 'DATETIME',
+                'null' => true
+            ],
+
+            'login_attempt' => [
+                'type' => 'INT',
+                'default' => 0
+            ],
+
+            'last_attempt' => [
+                'type' => 'DATETIME',
+                'null' => true
             ],
             'created_at' => [
                 'type' => 'DATETIME',
+                'null' => true
+            ],
+            'created_by' => [
+                'type' => 'varchar',
+                'constraint' => 100,
+                'null' => true
+            ],
+
+            'updated_by' => [
+                'type' => 'varchar',
+                'constraint' => 100,
                 'null' => true
             ],
             'updated_at' => [

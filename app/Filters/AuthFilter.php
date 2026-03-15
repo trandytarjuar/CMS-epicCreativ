@@ -13,6 +13,21 @@ class AuthFilter implements FilterInterface
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/login');
         }
+
+        $idleTimeout = 7200; // 2 jam
+        $maxSession = 86400; // 1 hari
+
+        if (time() - session()->get('last_activity') > $idleTimeout) {
+            session()->destroy();
+            return redirect()->to('/login');
+        }
+
+        if (time() - session()->get('login_time') > $maxSession) {
+            session()->destroy();
+            return redirect()->to('/login');
+        }
+
+        session()->set('last_activity', time());
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

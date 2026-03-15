@@ -17,18 +17,20 @@
              </div>
              <div class="card-body login-card-body">
                  <p class="login-box-msg">Sign in </p>
-                 <form action="../index3.html" method="post">
+                 <div id="loginAlert" class="alert alert-danger d-none"></div>
+
+                 <form id="loginForm">
                      <div class="input-group mb-1">
                          <div class="form-floating">
-                             <input id="loginEmail" type="email" class="form-control" value="" placeholder="" />
-                             <label for="loginEmail">Email/Username</label>
+                             <input id="username" type="text" name="email" class="form-control" value="" placeholder="" />
+                             <label for="username">Email/Username</label>
                          </div>
                          <div class="input-group-text"><span class="bi bi-person"></span></div>
                      </div>
                      <div class="input-group mb-1">
                          <div class="form-floating">
-                             <input id="loginPassword" type="password" class="form-control" placeholder="" />
-                             <label for="loginPassword">Password</label>
+                             <input id="password" name="password" type="password" class="form-control" placeholder="" />
+                             <label for="password">Password</label>
                          </div>
                          <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
                      </div>
@@ -51,9 +53,16 @@
                      <!--end::Row-->
                  </form>
                  <div class="social-auth-links text-center mb-3 d-grid gap-2">
-                     <a href="#" class="btn btn-primary">
+                     <!-- <a href="#" class="btn btn-primary">
                          Sign
-                     </a>
+                     </a> -->
+                     <button id="btnLogin" type="button" class="btn btn-primary">
+
+                         <span id="loginText">Sign In</span>
+
+                         <span id="loginSpinner" class="spinner-border spinner-border-sm d-none"></span>
+
+                     </button>
 
                  </div>
                  <!-- /.social-auth-links -->
