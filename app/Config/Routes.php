@@ -36,3 +36,11 @@ $routes->get('/client/show/(:num)', 'ClientController::show/$1', ['filter' => 'a
 $routes->post('/client/update/(:num)', 'ClientController::update/$1', ['filter' => 'auth']);
 $routes->delete('/client/(:num)', 'ClientController::delete/$1', ['filter' => 'auth']);
 // $routes->post('/forgot-password', 'AuthController::forgotPasswordProcess');
+
+$routes->get('/language','LanguageController::index',['filter'=>'auth']);
+$routes->post('/language','LanguageController::store',['filter'=>'auth']);
+$routes->post('/language/update/(:num)','LanguageController::update/$1',['filter'=>'auth']);
+$routes->delete('/language/(:num)','LanguageController::delete/$1',['filter'=>'auth']);
+
+$routes->get('/portfolio', 'PortfolioController::indexINA', ['filter' => 'auth']);
+

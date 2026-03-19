@@ -36,7 +36,7 @@
         <span class="brand-text fw-light">Epic Creative</span>
         <!--end::Brand Text-->
       </a>
-      
+
       <!--end::Brand Link-->
     </div>
     <!--end::Sidebar Brand-->
@@ -87,12 +87,15 @@
 
             </ul>
           </li>
+
+
+
           <li class="nav-item menu-open">
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('/') ?>" class="nav-link active">
-                  <i class="nav-icon bi bi-youtube"></i>
-                  <p>Youtube</p>
+                <a href="<?= base_url('language') ?>" class="nav-link active">
+                  <i class="nav-icon bi bi-globe"></i>
+                  <p>Language</p>
                 </a>
               </li>
             </ul>
@@ -100,9 +103,10 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon bi bi-briefcase"></i>
+              <img src="https://flagcdn.com/w20/id.png"
+                style="width:20px; margin-right:8px;">
               <p>
-                About
+                Indonesian Language
                 <i class="nav-arrow bi bi-chevron-right"></i>
               </p>
             </a>
@@ -116,23 +120,23 @@
               <li class="nav-item">
                 <a href="./widgets/info-box.html" class="nav-link">
                   <i class="nav-icon bi bi-circle"></i>
-                  <p>info Box</p>
+                  <p>About Us</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./widgets/cards.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
-                  <p>Cards</p>
+                <a href="<?= base_url('portfolio') ?>" class="nav-link">
+                  <i class="nav-icon bi bi-youtube"></i>
+                  <p>Portfolio</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon bi bi-clipboard-fill"></i>
+              <img src="https://flagcdn.com/w20/us.png"
+                style="width:20px; margin-right:8px;">
               <p>
-
-                <span class="nav-badge badge text-bg-secondary me-3">6</span>
+                English Language
                 <i class="nav-arrow bi bi-chevron-right"></i>
               </p>
             </a>
@@ -140,19 +144,19 @@
               <li class="nav-item">
                 <a href="./layout/unfixed-sidebar.html" class="nav-link">
                   <i class="nav-icon bi bi-circle"></i>
-                  <p>Default Sidebar</p>
+                  <p>Service</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./layout/fixed-sidebar.html" class="nav-link">
                   <i class="nav-icon bi bi-circle"></i>
-                  <p>Fixed Sidebar</p>
+                  <p>About Us</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./layout/fixed-header.html" class="nav-link">
-                  <i class="nav-icon bi bi-circle"></i>
-                  <p>Fixed Header</p>
+                  <i class="nav-icon bi bi-youtube"></i>
+                  <p>portfolio</p>
                 </a>
               </li>
               <li class="nav-item">
