@@ -18,7 +18,8 @@ class Email extends BaseConfig
     /**
      * The mail sending protocol: mail, sendmail, smtp
      */
-    public string $protocol = 'mail';
+    public string $protocol = 'smtp';
+    // public string $protocol = 'mail';
 
     /**
      * The server path to Sendmail.
@@ -28,7 +29,8 @@ class Email extends BaseConfig
     /**
      * SMTP Server Hostname
      */
-    public string $SMTPHost = '';
+    public string $SMTPHost = 'smtp.gmail.com';
+    // public string $SMTPHost = '';
 
     /**
      * Which SMTP authentication method to use: login, plain
@@ -38,17 +40,20 @@ class Email extends BaseConfig
     /**
      * SMTP Username
      */
-    public string $SMTPUser = '';
+    public string $SMTPUser = 'trandy@gmail.com';
+    // public string $SMTPUser = '';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = '';
+    public string $SMTPPass = 'Tarjuar23_24';
+    // public string $SMTPPass = '';
 
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 25;
+    public int $SMTPPort = 587;
+    // public int $SMTPPort = 25;
 
     /**
      * SMTP Timeout (in seconds)
@@ -68,6 +73,7 @@ class Email extends BaseConfig
      *             465 should set this to ''.
      */
     public string $SMTPCrypto = 'tls';
+    // public string $SMTPCrypto = 'tls';
 
     /**
      * Enable word-wrap
@@ -82,7 +88,7 @@ class Email extends BaseConfig
     /**
      * Type of mail, either 'text' or 'html'
      */
-    public string $mailType = 'text';
+    public string $mailType = 'html';
 
     /**
      * Character set (utf-8, iso-8859-1, etc.)

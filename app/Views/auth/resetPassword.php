@@ -16,18 +16,32 @@
                  <!-- </a> -->
              </div>
              <div class="card-body login-card-body">
-                 <p class="login-box-msg">Forgot your password?<br>
-                     Enter your email to reset password. </p>
+                 <p class="login-box-msg">Reset Password</p>
                  <div id="loginAlert" class="alert alert-danger d-none"></div>
 
                  <!-- <form id="loginForm"> -->
                  <div class="input-group mb-1">
                      <div class="form-floating">
-                         <input id="email" type="email" name="email" class="form-control" value="" placeholder="" />
-                         <label for="email">Email</label>
+                         <input
+                             type="hidden"
+                             id="token"
+                             value="<?= $token ?>">
                      </div>
                      <div class="input-group-text"><span class="bi bi-person"></span></div>
                  </div>
+                 <div class="input-group mb-1">
+                     <div class="form-floating">
+                         <input
+                             type="password"
+                             id="password"
+                             class="form-control mb-3"
+                             placeholder="New Password">
+                     </div>
+                     <div class="input-group-text"><span class="bi bi-person"></span></div>
+                 </div>
+
+
+
 
                  <!--begin::Row-->
 
@@ -37,10 +51,13 @@
                      <!-- <a href="#" class="btn btn-primary">
                          Sign
                      </a> -->
-                     <button id="btnReset" type="button" class="btn btn-primary w-100">
-                         Send Reset Link
-                     </button>
+                     <button
+                         class="btn btn-primary w-100"
+                         id="btnChangePassword">
 
+                         Reset Password
+
+                     </button>
                  </div>
                  <!-- /.social-auth-links -->
                  <div class="text-center mt-3">
@@ -66,17 +83,20 @@
          crossorigin="anonymous"></script>
      <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
      <script src="../js/adminlte.js"></script>
-     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"></script>
      <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
 
      <!--end::OverlayScrollbars Configure-->
      <!--end::Script-->
+     <script>
+         toastr.options = {
+             "closeButton": true,
+             "progressBar": true,
+             "positionClass": "toast-top-right",
+             "timeOut": "3000"
+         };
+     </script>
      <?= $this->include('js/forgotPassword') ?>
-     
  </body>
-
  <!--end::Body-->
 
  </html>

@@ -86,4 +86,105 @@ class AuthController extends BaseController
     {
         return view('auth/forgotPassword');
     }
+
+
+    public function sendResetLink()
+    {
+
+        $email = $this->request->getPost('email');
+
+        $userModel = new \App\Models\UserModel();
+
+        $user = $userModel->where('email', $email)->first();
+        
+        if (!$user) {
+            
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'If the email exists, a reset link has been sent.'
+                ]);
+                }
+                
+                $token = bin2hex(random_bytes(32));
+                var_dump("User: ", $user);die;
+
+        $userModel->update($user['id'], [
+            'reset_token' => $token,
+            'reset_expired' => date('Y-m-d H:i:s', strtotime('+15 minutes'))
+        ]);
+
+        $resetLink = base_url('reset-password?token=' . $token);
+
+        $emailService = \Config\Services::email();
+
+        $emailService->setTo($email);
+        $emailService->setSubject('Reset Password');
+
+        $emailService->setMessage("
+        Click link to reset password:
+        <br>
+        <a href='$resetLink'>$resetLink</a>
+    ");
+
+        $emailService->send();
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'Reset link sent to your email'
+        ]);
+    }
+
+
+    public function resetPassword()
+    {
+
+        $token = $this->request->getGet('token');
+
+        $userModel = new \App\Models\UserModel();
+
+        $user = $userModel->where('reset_token', $token)->first();
+
+        if (!$user) {
+            return redirect()->to('/login');
+        }
+
+        if (strtotime($user['reset_expired']) < time()) {
+            return redirect()->to('/login');
+        }
+
+        return view('auth/reset_password', [
+            'token' => $token
+        ]);
+    }
+
+
+    public function updatePassword()
+    {
+
+        $token = $this->request->getPost('token');
+        $password = $this->request->getPost('password');
+
+        $userModel = new \App\Models\UserModel();
+
+        $user = $userModel->where('reset_token', $token)->first();
+
+        if (!$user) {
+
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Invalid token'
+            ]);
+        }
+
+        $userModel->update($user['id'], [
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'reset_token' => null,
+            'reset_expired' => null
+        ]);
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'Password berhasil diubah'
+        ]);
+    }
 }

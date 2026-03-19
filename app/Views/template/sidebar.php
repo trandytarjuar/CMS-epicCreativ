@@ -79,7 +79,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('/') ?>" class="nav-link active">
+                <a href="<?= base_url('client') ?>" class="nav-link active">
                   <i class="nav-icon bi bi-buildings"></i>
                   <p>Client</p>
                 </a>
