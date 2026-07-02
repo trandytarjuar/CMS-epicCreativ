@@ -9,6 +9,7 @@ class CreatePortfolioBehindScenesTable extends Migration
     public function up()
     {
         $this->forge->addField([
+
             'id' => [
                 'type' => 'BIGINT',
                 'auto_increment' => true
@@ -18,18 +19,52 @@ class CreatePortfolioBehindScenesTable extends Migration
                 'type' => 'BIGINT'
             ],
 
-            'youtube_embed' => [
+            'media_type' => [
+                'type' => 'ENUM',
+                'constraint' => [
+                    'upload',
+                    'youtube'
+                ],
+                'default' => 'upload'
+            ],
+
+            'video' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255
+                'constraint' => 255,
+                'null' => true
+            ],
+
+            'youtube_embed' => [
+                'type' => 'TEXT',
+                'null' => true
+            ],
+
+            'sort' => [
+                'type' => 'INT',
+                'default' => 0
+            ],
+
+            'is_active' => [
+                'type' => 'TINYINT',
+                'constraint' => 1,
+                'default' => 1
             ],
 
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true
+            ],
+
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => true
             ]
         ]);
 
-        $this->forge->addKey('id', true);
+        $this->forge->addKey(
+            'id',
+            true
+        );
 
         $this->forge->addForeignKey(
             'portfolio_id',
@@ -39,11 +74,15 @@ class CreatePortfolioBehindScenesTable extends Migration
             'CASCADE'
         );
 
-        $this->forge->createTable('portfolio_behind_scenes');
+        $this->forge->createTable(
+            'portfolio_behind_scenes'
+        );
     }
 
     public function down()
     {
-        $this->forge->dropTable('portfolio_behind_scenes');
+        $this->forge->dropTable(
+            'portfolio_behind_scenes'
+        );
     }
 }

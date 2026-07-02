@@ -19,10 +19,12 @@ class UserModel extends Model
         'role',
         'login_attempt',
         'last_attempt',
-        'last_login'
+        'last_login',
+        'reset_token',
+        'reset_expired',
     ];
 
-    public function getUserByLogin($username)
+    public function getUserByLogin(string $username)
     {
         return $this
             ->groupStart()
@@ -31,7 +33,7 @@ class UserModel extends Model
             ->groupEnd()
             ->first();
     }
-    public function resetLoginAttempt($userId)
+    public function resetLoginAttempt(int $userId)
     {
         return $this->update($userId, [
             'login_attempt' => 0,
@@ -39,7 +41,7 @@ class UserModel extends Model
             'last_login' => date('Y-m-d H:i:s')
         ]);
     }
-    public function increaseLoginAttempt($user)
+    public function increaseLoginAttempt(array $user)
     {
         return $this->update($user['id'], [
             'login_attempt' => $user['login_attempt'] + 1,

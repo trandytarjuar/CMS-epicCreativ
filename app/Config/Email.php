@@ -29,7 +29,7 @@ class Email extends BaseConfig
     /**
      * SMTP Server Hostname
      */
-    public string $SMTPHost = 'smtp.gmail.com';
+    public string $SMTPHost = 'smtp.hostinger.com';
     // public string $SMTPHost = '';
 
     /**
@@ -40,30 +40,33 @@ class Email extends BaseConfig
     /**
      * SMTP Username
      */
-    public string $SMTPUser = 'trandy@gmail.com';
+    public string $SMTPUser = 'noreply@cms.epicholdingstudio.com';
     // public string $SMTPUser = '';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = 'Tarjuar23_24';
+    public string $SMTPPass = 'Batamerah@20216';
+    // public string $SMTPPass = 'Tarjuar23_24';
     // public string $SMTPPass = '';
 
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 587;
+    public int $SMTPPort = 465;
     // public int $SMTPPort = 25;
 
     /**
      * SMTP Timeout (in seconds)
      */
-    public int $SMTPTimeout = 5;
+    // public int $SMTPTimeout = 5;
+    public int $SMTPTimeout = 30;
 
     /**
      * Enable persistent SMTP connections
      */
-    public bool $SMTPKeepAlive = false;
+    // public bool $SMTPKeepAlive = false;
+    public bool $SMTPKeepAlive = true;
 
     /**
      * SMTP Encryption.
@@ -72,8 +75,8 @@ class Email extends BaseConfig
      *             to the server. 'ssl' means implicit SSL. Connection on port
      *             465 should set this to ''.
      */
-    public string $SMTPCrypto = 'tls';
-    // public string $SMTPCrypto = 'tls';
+    // public string $SMTPCrypto = '';
+     public string $SMTPCrypto = 'ssl';
 
     /**
      * Enable word-wrap

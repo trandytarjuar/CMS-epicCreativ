@@ -9,39 +9,44 @@ class CreateAboutSectionTranslationsTable extends Migration
     public function up()
     {
         $this->forge->addField([
+
             'id' => [
                 'type' => 'BIGINT',
                 'auto_increment' => true
             ],
+
             'about_section_id' => [
                 'type' => 'BIGINT'
             ],
+
             'language_id' => [
                 'type' => 'BIGINT'
             ],
-            'banner' => [
+
+            'title' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255,
+                'constraint' => 255
             ],
-            'image' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true
-            ],
+
             'content' => [
-                'type' => 'TEXT'
+                'type' => 'LONGTEXT'
             ],
+
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true
             ],
+
             'updated_at' => [
                 'type' => 'DATETIME',
                 'null' => true
             ]
         ]);
 
-        $this->forge->addKey('id', true);
+        $this->forge->addKey(
+            'id',
+            true
+        );
 
         $this->forge->addForeignKey(
             'about_section_id',
@@ -59,11 +64,15 @@ class CreateAboutSectionTranslationsTable extends Migration
             'CASCADE'
         );
 
-        $this->forge->createTable('about_section_translations');
+        $this->forge->createTable(
+            'about_section_translations'
+        );
     }
 
     public function down()
     {
-        $this->forge->dropTable('about_section_translations');
+        $this->forge->dropTable(
+            'about_section_translations'
+        );
     }
 }

@@ -36,6 +36,7 @@
         onload="this.media='all'" />
     <!--end::Fonts-->
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link rel="icon" type="image/x-icon" href="<?= base_url('logo1.png') ?>">
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
@@ -50,6 +51,7 @@
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../css/adminlte.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
 
     <!--end::Required Plugin(AdminLTE)-->
 </head>

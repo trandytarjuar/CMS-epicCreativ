@@ -19,7 +19,7 @@ class ClientModel extends Model
         return $this->findAll();
     }
 
-    public function getById($id)
+    public function getById(string $id )
     {
         return $this->find($id);
     }
@@ -27,7 +27,7 @@ class ClientModel extends Model
     // =====================
     // CREATE
     // =====================
-    public function createClient($name, $logo)
+    public function createClient(string $name,string $logo)
     {
         if (!$name) {
             return [

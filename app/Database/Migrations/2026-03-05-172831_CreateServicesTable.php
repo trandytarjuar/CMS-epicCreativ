@@ -13,10 +13,6 @@ class CreateServicesTable extends Migration
                 'type' => 'BIGINT',
                 'auto_increment' => true
             ],
-            'banner' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ],
             'image' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -33,7 +29,6 @@ class CreateServicesTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
-
         $this->forge->createTable('services');
     }
 

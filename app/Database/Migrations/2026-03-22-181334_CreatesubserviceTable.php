@@ -19,11 +19,7 @@ class CreateSubServicesTable extends Migration
                 'type' => 'BIGINT'
             ],
 
-            'banner' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true
-            ],
+            
 
             'image' => [
                 'type' => 'VARCHAR',

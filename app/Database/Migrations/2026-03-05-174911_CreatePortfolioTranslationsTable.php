@@ -9,41 +9,45 @@ class CreatePortfolioTranslationsTable extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id'=>[
-                'type'=>'BIGINT',
-                'auto_increment'=>true
+
+            'id' => [
+                'type' => 'BIGINT',
+                'auto_increment' => true
             ],
 
-            'portfolio_id'=>[
-                'type'=>'BIGINT'
+            'portfolio_id' => [
+                'type' => 'BIGINT'
             ],
 
-            'language_id'=>[
-                'type'=>'BIGINT'
+            'language_id' => [
+                'type' => 'BIGINT'
             ],
 
-            'title'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>255
+            'title' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255
             ],
 
-            'description'=>[
-                'type'=>'TEXT',
-                'null'=>true
+            'description' => [
+                'type' => 'TEXT',
+                'null' => true
             ],
 
-            'created_at'=>[
-                'type'=>'DATETIME',
-                'null'=>true
+            'created_at' => [
+                'type' => 'DATETIME',
+                'null' => true
             ],
 
-            'updated_at'=>[
-                'type'=>'DATETIME',
-                'null'=>true
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => true
             ]
         ]);
 
-        $this->forge->addKey('id', true);
+        $this->forge->addKey(
+            'id',
+            true
+        );
 
         $this->forge->addForeignKey(
             'portfolio_id',
@@ -61,11 +65,15 @@ class CreatePortfolioTranslationsTable extends Migration
             'CASCADE'
         );
 
-        $this->forge->createTable('portfolio_translations');
+        $this->forge->createTable(
+            'portfolio_translations'
+        );
     }
 
     public function down()
     {
-        $this->forge->dropTable('portfolio_translations');
+        $this->forge->dropTable(
+            'portfolio_translations'
+        );
     }
 }

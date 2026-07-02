@@ -91,7 +91,7 @@ class UserController extends BaseController
             'exists' => $exists ? true : false
         ]);
     }
-    public function delete($id)
+    public function delete(int $id)
     {
         $userModel = new \App\Models\UserModel();
 
@@ -111,7 +111,7 @@ class UserController extends BaseController
             'message' => 'User berhasil dihapus'
         ]);
     }
-    public function show($id)
+    public function show(int $id)
     {
         $userModel = new \App\Models\UserModel();
 
@@ -120,7 +120,7 @@ class UserController extends BaseController
         return $this->response->setJSON($user);
     }
 
-    public function update($id)
+    public function update(int $id)
     {
         $userModel = new \App\Models\UserModel();
 

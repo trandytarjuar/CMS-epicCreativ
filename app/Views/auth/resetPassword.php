@@ -20,24 +20,22 @@
                  <div id="loginAlert" class="alert alert-danger d-none"></div>
 
                  <!-- <form id="loginForm"> -->
-                 <div class="input-group mb-1">
+                 <input
+                     type="hidden"
+                     id="token"
+                     value="<?= $token ?>">
+                 <!-- <div class="input-group mb-1">
                      <div class="form-floating">
-                         <input
-                             type="hidden"
-                             id="token"
-                             value="<?= $token ?>">
                      </div>
                      <div class="input-group-text"><span class="bi bi-person"></span></div>
-                 </div>
+                 </div> -->
+
                  <div class="input-group mb-1">
                      <div class="form-floating">
-                         <input
-                             type="password"
-                             id="password"
-                             class="form-control mb-3"
-                             placeholder="New Password">
+                         <input id="password" name="password" type="password" class="form-control" placeholder="" />
+                         <label for="password">Password</label>
                      </div>
-                     <div class="input-group-text"><span class="bi bi-person"></span></div>
+                     <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
                  </div>
 
 
@@ -83,6 +81,8 @@
          crossorigin="anonymous"></script>
      <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
      <script src="../js/adminlte.js"></script>
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
      <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
 
      <!--end::OverlayScrollbars Configure-->
@@ -95,7 +95,7 @@
              "timeOut": "3000"
          };
      </script>
-     <?= $this->include('js/forgotPassword') ?>
+     <?= $this->include('js/resetPassword') ?>
  </body>
  <!--end::Body-->
 

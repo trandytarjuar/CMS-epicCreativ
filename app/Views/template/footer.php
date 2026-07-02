@@ -83,6 +83,7 @@
   src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"
   integrity="sha256-XPpPaZlU8S/HWf7FZLAncLg2SAkP8ScUTII89x9D3lY="
   crossorigin="anonymous"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 <!--end::Script-->
 </body>
 <!--end::Body-->

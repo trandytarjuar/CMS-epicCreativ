@@ -96,17 +96,16 @@ class AuthController extends BaseController
         $userModel = new \App\Models\UserModel();
 
         $user = $userModel->where('email', $email)->first();
-        
+
         if (!$user) {
-            
+
             return $this->response->setJSON([
                 'status' => 'success',
                 'message' => 'If the email exists, a reset link has been sent.'
-                ]);
-                }
-                
-                $token = bin2hex(random_bytes(32));
-                var_dump("User: ", $user);die;
+            ]);
+        }
+
+        $token = bin2hex(random_bytes(32));
 
         $userModel->update($user['id'], [
             'reset_token' => $token,
@@ -117,15 +116,19 @@ class AuthController extends BaseController
 
         $emailService = \Config\Services::email();
 
+        $emailService->setFrom('no-reply@epic.com', 'Epic Creative'); // WAJIB
         $emailService->setTo($email);
         $emailService->setSubject('Reset Password');
 
         $emailService->setMessage("
-        Click link to reset password:
-        <br>
-        <a href='$resetLink'>$resetLink</a>
-    ");
+            Click link to reset password:
+            <br>
+            <a href='$resetLink'>$resetLink</a>
+        ");
 
+        if (!$emailService->send()) {
+            dd($emailService->printDebugger(['headers']));
+        }
         $emailService->send();
 
         return $this->response->setJSON([
@@ -152,7 +155,7 @@ class AuthController extends BaseController
             return redirect()->to('/login');
         }
 
-        return view('auth/reset_password', [
+        return view('auth/resetPassword', [
             'token' => $token
         ]);
     }

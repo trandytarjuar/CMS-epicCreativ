@@ -19,15 +19,6 @@ class CreateServiceTranslationsTable extends Migration
             'language_id' => [
                 'type' => 'BIGINT'
             ],
-            'banner' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ],
-            'image' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true
-            ],
             'title' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255
@@ -48,21 +39,8 @@ class CreateServiceTranslationsTable extends Migration
 
         $this->forge->addKey('id', true);
 
-        $this->forge->addForeignKey(
-            'service_id',
-            'services',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
-
-        $this->forge->addForeignKey(
-            'language_id',
-            'languages',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
+        $this->forge->addForeignKey('service_id', 'services', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('language_id', 'languages', 'id', 'CASCADE', 'CASCADE');
 
         $this->forge->createTable('service_translations');
     }

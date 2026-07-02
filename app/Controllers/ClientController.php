@@ -6,7 +6,8 @@ use App\Models\ClientModel;
 
 class ClientController extends BaseController
 {
-    protected $clientModel;
+    // protected $clientModel;
+    protected ClientModel $clientModel;
 
     public function __construct()
     {
@@ -29,14 +30,14 @@ class ClientController extends BaseController
         return $this->response->setJSON($result);
     }
 
-    public function show($id)
+    public function show(int $id)
     {
         return $this->response->setJSON(
             $this->clientModel->getById($id)
         );
     }
 
-    public function update($id)
+    public function update(int $id)
     {
         $result = $this->clientModel->updateClient(
             $id,
@@ -47,7 +48,7 @@ class ClientController extends BaseController
         return $this->response->setJSON($result);
     }
 
-    public function delete($id)
+    public function delete(int $id)
     {
         $result = $this->clientModel->deleteClient($id);
 

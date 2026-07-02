@@ -1,3 +1,8 @@
+<?php
+
+/** @var array $user */
+
+?>
 <?= $this->include('template/header') ?>
 <?= $this->include('template/sidebar') ?>
 <!--end::Sidebar-->
